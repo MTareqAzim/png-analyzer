@@ -24,6 +24,7 @@ config/name="PNG Analyzer"
 config/description="Program to analyze color composition of pixel art PNGs."
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://art/icon.png"
+config/windows_native_icon="res://art/icon.ico"
 
 [display]
 

@@ -17,3 +17,28 @@ text = "Drag and Drop
 PNG"
 align = 1
 valign = 1
+
+[node name="ColorOversize" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 307.0
+margin_bottom = 157.0
+rect_min_size = Vector2( 300, 150 )
+popup_exclusive = true
+window_title = "Too Many Colors!"
+
+[node name="Label2" type="Label" parent="ColorOversize"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -142.0
+margin_top = -67.0
+margin_right = 142.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 200, 100 )
+text = "Image contains too many colors. Please limit your pixel art to less than 4000 colors."
+align = 1
+valign = 1
+autowrap = true

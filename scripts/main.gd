@@ -16,8 +16,10 @@ func _ready():
 	Input.set_custom_mouse_cursor(drag, Input.CURSOR_DRAG)
 
 
-func import_image():
+func import_image(error):
 	var scene = _update_scene(image_dnd)
+	
+	scene.show_error(error)
 
 
 func pick_image(files):

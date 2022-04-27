@@ -60,6 +60,10 @@ texture={
 "svg/scale": 1.0
 }
 
+[memory]
+
+limits/message_queue/max_size_kb=8192
+
 [physics]
 
 common/enable_pause_aware_picking=true

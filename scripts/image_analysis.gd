@@ -1,5 +1,8 @@
 extends Control
 
+const NO_ERROR : int = 0
+const COLOR_OVERSIZE : int = 1
+
 var color_info = load("res://scenes/ColorInfo.tscn")
 
 var colors : Array = []
@@ -45,6 +48,11 @@ func _analyze_image(image: Image):
 				colors_dict[html] = colors_dict[html] + 1
 			else:
 				colors_dict[html] = 1
+			
+			if colors_dict.size() > 4000:
+				image.unlock()
+				_import_image(COLOR_OVERSIZE)
+				return
 	
 	image.unlock()
 	
@@ -52,6 +60,10 @@ func _analyze_image(image: Image):
 		colors.append([color, colors_dict[color]])
 	
 	colors.sort_custom(ColorsArraySorter, "sort_descending")
+
+
+func _import_image(error: int):
+	get_parent().import_image(error)
 
 
 class ColorsArraySorter:
@@ -92,7 +104,7 @@ func _on_NewImage_pressed():
 
 
 func _on_ConfirmationDialog_confirmed():
-	get_parent().import_image()
+	_import_image(NO_ERROR)
 
 
 func _on_RemoveHighlights_pressed():

@@ -6,6 +6,7 @@ PNG Analyzer is a program to break down the color composition of pixel art.
 - Latest Version: v1.0.0
 - Requirements
   - Windows
+- [Download the zip file here.](https://anonzs.itch.io/png-analyzer)
 
 ## Use
 Drag and drop a PNG into the program:

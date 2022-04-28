@@ -3,6 +3,7 @@ extends Control
 var image_dnd = load("res://scenes/ImageDnD.tscn")
 var image_picker = load("res://scenes/ImagePicker.tscn")
 var image_analysis = load("res://scenes/ImageAnalysis.tscn")
+
 var drag = load("res://art/scroll_move.png")
 
 var current_scene : Node = null

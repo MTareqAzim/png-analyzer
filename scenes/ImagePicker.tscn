@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scripts/image_picker.gd" type="Script" id=1]
-[ext_resource path="res://scripts/gallery.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ImagePicker/image_picker.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ImagePicker/gallery.gd" type="Script" id=2]
 
 [node name="ImagePicker" type="Control"]
 anchor_right = 1.0

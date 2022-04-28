@@ -2,21 +2,25 @@
 
 [ext_resource path="res://scripts/color_info.gd" type="Script" id=1]
 
-[node name="ColorInfo" type="HBoxContainer"]
+[node name="ColorInfo" type="Control"]
+anchor_right = 1.0
+rect_min_size = Vector2( 0, 50 )
+script = ExtResource( 1 )
+
+[node name="VBC" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -550.0
 rect_min_size = Vector2( 0, 50 )
-script = ExtResource( 1 )
 
-[node name="Border" type="ColorRect" parent="."]
+[node name="Border" type="ColorRect" parent="VBC"]
 margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 mouse_filter = 1
 color = Color( 0, 0, 0, 1 )
 
-[node name="BackgroundColor" type="ColorRect" parent="Border"]
+[node name="BackgroundColor" type="ColorRect" parent="VBC/Border"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -31,7 +35,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.145098, 0.145098, 0.164706, 1 )
 
-[node name="Color" type="ColorRect" parent="Border"]
+[node name="Color" type="ColorRect" parent="VBC/Border"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -45,7 +49,7 @@ mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Usage" type="Label" parent="."]
+[node name="Usage" type="Label" parent="VBC"]
 margin_left = 54.0
 margin_right = 209.0
 margin_bottom = 50.0
@@ -56,7 +60,7 @@ text = "50.00%"
 align = 1
 valign = 1
 
-[node name="Hex" type="Label" parent="."]
+[node name="Hex" type="Label" parent="VBC"]
 margin_left = 213.0
 margin_right = 369.0
 margin_bottom = 50.0
@@ -67,12 +71,12 @@ text = "#000000"
 align = 1
 valign = 1
 
-[node name="VSeparator" type="VSeparator" parent="."]
+[node name="VSeparator" type="VSeparator" parent="VBC"]
 margin_left = 373.0
 margin_right = 377.0
 margin_bottom = 50.0
 
-[node name="Transparency" type="Label" parent="."]
+[node name="Transparency" type="Label" parent="VBC"]
 margin_left = 381.0
 margin_right = 537.0
 margin_bottom = 50.0
@@ -83,12 +87,12 @@ text = "100% Transparent"
 align = 1
 valign = 1
 
-[node name="VSeparator2" type="VSeparator" parent="."]
+[node name="VSeparator2" type="VSeparator" parent="VBC"]
 margin_left = 541.0
 margin_right = 545.0
 margin_bottom = 50.0
 
-[node name="Red" type="Label" parent="."]
+[node name="Red" type="Label" parent="VBC"]
 margin_left = 549.0
 margin_right = 704.0
 margin_bottom = 50.0
@@ -98,7 +102,7 @@ text = "255"
 align = 1
 valign = 1
 
-[node name="Green" type="Label" parent="."]
+[node name="Green" type="Label" parent="VBC"]
 margin_left = 708.0
 margin_right = 864.0
 margin_bottom = 50.0
@@ -108,7 +112,7 @@ text = "255"
 align = 1
 valign = 1
 
-[node name="Blue" type="Label" parent="."]
+[node name="Blue" type="Label" parent="VBC"]
 margin_left = 868.0
 margin_right = 1024.0
 margin_bottom = 50.0
@@ -117,5 +121,3 @@ size_flags_vertical = 3
 text = "255"
 align = 1
 valign = 1
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]

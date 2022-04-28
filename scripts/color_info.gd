@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 
 signal highlight_color(color)
 signal copy_color(color)
@@ -15,18 +15,18 @@ func set_data(color_data: Array, total_pixels):
 	
 	color = Color(color_data[0])
 	
-	$Border/Color.color = color
-	$Usage.text = String(usage_percent).pad_decimals(2)
-	$Hex.text = "#" + hex_value.to_upper()
+	$VBC/Border/Color.color = color
+	$VBC/Usage.text = String(usage_percent).pad_decimals(2)
+	$VBC/Hex.text = "#" + hex_value.to_upper()
 	
 	if transparency_value < 0.01:
-		$Transparency.text = "No Transparency"
+		$VBC/Transparency.text = "No Transparency"
 	else:
-		$Transparency.text = String(transparency_value).pad_decimals(0) + "% Transparent"
+		$VBC/Transparency.text = String(transparency_value).pad_decimals(0) + "% Transparent"
 	
-	$Red.text = String(color.r8)
-	$Green.text = String(color.g8)
-	$Blue.text = String(color.b8)
+	$VBC/Red.text = String(color.r8)
+	$VBC/Green.text = String(color.g8)
+	$VBC/Blue.text = String(color.b8)
 
 
 func _on_gui_input(event):

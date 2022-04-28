@@ -22,6 +22,10 @@ In the analysis window, you can see the color breakdown for the image you provid
 - Godot 3.4.4
 
 ## License
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2022 © MTareqAzim
 
 ## Author
 Tareq Anuar

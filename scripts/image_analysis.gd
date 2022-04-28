@@ -7,6 +7,7 @@ var color_info = load("res://scenes/ColorInfo.tscn")
 
 var colors : Array = []
 var total_number_of_pixels : int = 0
+var prev_highlighted_color : Control = null
 
 onready var preview : TextureRect = $HBoxContainer/Preview/VBoxContainer/ScrollContainer/ImagePreview
 onready var highlighter : TextureRect = $HBoxContainer/Preview/VBoxContainer/ScrollContainer/ImagePreview/PixelHighlighter
@@ -82,8 +83,17 @@ func _populate_analysis(image: Image):
 		
 		analysis.add_child(color_info_instance)
 		
+		color_info_instance.connect("highlighted", self, "_highlight_info")
 		color_info_instance.connect("highlight_color", self, "_highlight_color")
 		color_info_instance.connect("copy_color", self, "_copy_color")
+
+
+func _highlight_info(color_info: Control):
+	if prev_highlighted_color:
+		prev_highlighted_color.deselect()
+	
+	color_info.highlight()
+	prev_highlighted_color = color_info
 
 
 func _highlight_color(color: Color):
@@ -92,6 +102,10 @@ func _highlight_color(color: Color):
 
 func _remove_highlight():
 	highlighter.hide()
+	
+	if prev_highlighted_color:
+		prev_highlighted_color.deselect()
+		prev_highlighted_color = null
 
 
 func _copy_color(color: Color):

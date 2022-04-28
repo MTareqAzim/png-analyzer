@@ -1,9 +1,15 @@
 extends Control
 
+const HIGHLIGHT : Color = Color(0.5, 0.5, 0.9, 0.2)
+const TRANSPARENT : Color = Color(0, 0, 0, 0)
+
+signal highlighted(node)
 signal highlight_color(color)
 signal copy_color(color)
 
 var color : Color
+
+onready var background : ColorRect = $BG
 
 
 func set_data(color_data: Array, total_pixels):
@@ -29,10 +35,19 @@ func set_data(color_data: Array, total_pixels):
 	$VBC/Blue.text = String(color.b8)
 
 
+func highlight():
+	background.color = HIGHLIGHT
+
+
+func deselect():
+	background.color = TRANSPARENT
+
+
 func _on_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			emit_signal("highlight_color", color)
+			emit_signal("highlighted", self)
 		
 		if event.button_index == BUTTON_RIGHT:
 			emit_signal("copy_color", color)
